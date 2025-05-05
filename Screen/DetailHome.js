@@ -6,7 +6,7 @@ export default function DetailHome() {
   const Navigation = useNavigation();
   return (
     <View style={styles.container} > 
-      <Text>DetailHome</Text>
+      <Text style={styles.containerTexto}>DetailHome</Text>
       <Button title='Mas de talles' onPress={() => Navigation.navigate('AnotherDatailsHome')}/>
     </View>
   )
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: 'skyblue',
     },
-    texto: {
+    containerTexto: {
       fontSize: 30,
       fontWeight: 'bold',
     },

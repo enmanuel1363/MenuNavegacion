@@ -5,6 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import 'react-native-gesture-handler';
 
 
 import Setting from './Screen/Setting';
@@ -32,15 +34,16 @@ function MyTabs() {
                     headerShown: false,
                 }}
             />
-            <Tab.Screen name="Users" component={Users}
+            <Tab.Screen name="Drawer" 
+            component={DrawerNavigate}
                 options={{
-                    tabBarLabel: 'Users',
                     tabBarIcon:({color, size})=>(
                         <AntDesign name="user" size={24} color="black" />
                     )
                 }}
             />
-            <Tab.Screen name="Setting" component={Setting}
+            <Tab.Screen name="Setting" 
+            component={Setting}
                 options={{
                     tabBarLabel: 'Setting',
                     tabBarIcon: ({ color, size }) => (
@@ -57,6 +60,17 @@ export default function Navegacion() {
         <NavigationContainer>
             <MyTabs />
         </NavigationContainer>
+    )
+}
+
+const Drawer = createDrawerNavigator();
+function DrawerNavigate(){
+    return(
+        <Drawer.Navigator initialRouteName='Users'>
+            <Drawer.Screen name="Users" component={Users}/>
+            <Drawer.Screen name="DetailHome" component={DetailHome}/>
+            <Drawer.Screen name="OtroDetalle" component={AnotherDatailsHome}/>
+        </Drawer.Navigator>
     )
 }
 
